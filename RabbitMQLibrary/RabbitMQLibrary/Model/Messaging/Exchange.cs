@@ -5,6 +5,7 @@ namespace RabbitMQLibrary.Model.Messaging
 {
     public class Exchange
     {
+        public Guid ExchangeGuid { get; set; }
         public string ExchangeName { get; set; }
         public string ExchangeType { get; set; }
         public bool Durable { get; set; }
