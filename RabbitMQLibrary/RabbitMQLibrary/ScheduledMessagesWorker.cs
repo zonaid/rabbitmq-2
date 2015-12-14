@@ -36,10 +36,10 @@ namespace RabbitMQLibrary
                     }
                     else
                     {
-                        lastRunTime = scheduledMessage.MessageSchedule.EffectiveDate;
+                        lastRunTime = scheduledMessage.EffectiveDate;
                     }
 
-                    var cronExpression = new Quartz.CronExpression(scheduledMessage.MessageSchedule.CronExpression);
+                    var cronExpression = new Quartz.CronExpression(scheduledMessage.CronExpression);
                     cronExpression.TimeZone = TimeZoneInfo.Utc;
                     var nextRunTime = cronExpression.GetTimeAfter(lastRunTime);
 

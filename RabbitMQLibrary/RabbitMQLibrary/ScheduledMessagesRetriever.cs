@@ -22,12 +22,11 @@ namespace RabbitMQLibrary
         {
             using (var conn = new SqlConnection(_connectionString))
             {
-                var allScheduledMessages = conn.Query<ScheduledMessage, Message, MessageSchedule, Exchange, ScheduledMessage>
+                var allScheduledMessages = conn.Query<ScheduledMessage, Message, Exchange, ScheduledMessage>
                 (SchedulingQueries.GetScheduledMessages,
-                (scheduledMessage, message, messageSchedule, exchange) =>
+                (scheduledMessage, message, exchange) =>
                 {
                     scheduledMessage.Message = message;
-                    scheduledMessage.MessageSchedule = messageSchedule;
                     scheduledMessage.Message.Exchange = exchange;
                     return scheduledMessage;
 

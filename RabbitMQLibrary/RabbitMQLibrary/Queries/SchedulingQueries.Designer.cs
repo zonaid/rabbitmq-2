@@ -72,11 +72,9 @@ namespace RabbitMQLibrary.Queries {
         
         /// <summary>
         ///   Looks up a localized string similar to use RabbitMQ
-        ///Select ScheduledMessageGuid, Active, m.MessageGuid, Body,
-        ///RoutingKey, ms.MessageScheduleGuid, CronExpression, EffectiveDate,
-        ///e.ExchangeGuid, ExchangeName, ExchangeType, Durable, AutoDelete
+        ///Select ScheduledMessageGuid, Active, CronExpression, EffectiveDate, m.MessageGuid, Body,
+        ///RoutingKey, e.ExchangeGuid, ExchangeName, ExchangeType, Durable, AutoDelete
         ///from ScheduledMessages sm join Messages m on m.MessageGuid = sm.MessageGuid
-        ///join MessageSchedules ms on sm.MessageScheduleGuid = ms.MessageScheduleGuid
         ///join Exchanges e on e.ExchangeGuid = sm.ExchangeGuid.
         /// </summary>
         internal static string GetScheduledMessages {
@@ -86,7 +84,7 @@ namespace RabbitMQLibrary.Queries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MessageGuid, MessageScheduleGuid, ExchangeGuid.
+        ///   Looks up a localized string similar to MessageGuid, ExchangeGuid.
         /// </summary>
         internal static string GetScheduledMessagesSplitOn {
             get {

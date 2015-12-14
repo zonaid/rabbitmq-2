@@ -123,15 +123,13 @@ select MessageRunGuid, ScheduledMessageGuid, SendAttemptTime, SentSuccessfully f
   </data>
   <data name="GetScheduledMessages" xml:space="preserve">
     <value>use RabbitMQ
-Select ScheduledMessageGuid, Active, m.MessageGuid, Body,
-RoutingKey, ms.MessageScheduleGuid, CronExpression, EffectiveDate,
-e.ExchangeGuid, ExchangeName, ExchangeType, Durable, AutoDelete
+Select ScheduledMessageGuid, Active, CronExpression, EffectiveDate, m.MessageGuid, Body,
+RoutingKey, e.ExchangeGuid, ExchangeName, ExchangeType, Durable, AutoDelete
 from ScheduledMessages sm join Messages m on m.MessageGuid = sm.MessageGuid
-join MessageSchedules ms on sm.MessageScheduleGuid = ms.MessageScheduleGuid
 join Exchanges e on e.ExchangeGuid = sm.ExchangeGuid</value>
   </data>
   <data name="GetScheduledMessagesSplitOn" xml:space="preserve">
-    <value>MessageGuid, MessageScheduleGuid, ExchangeGuid</value>
+    <value>MessageGuid, ExchangeGuid</value>
   </data>
   <data name="InsertMessageRun" xml:space="preserve">
     <value>use RabbitMQ

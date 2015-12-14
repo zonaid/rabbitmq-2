@@ -82,7 +82,6 @@
     <Compile Include="Interfaces\IMessageRunLogger.cs" />
     <Compile Include="MessageRunLogger.cs" />
     <Compile Include="Model\Scheduling\MessageRunError.cs" />
-    <Compile Include="Model\Scheduling\MessageSchedule.cs" />
     <Compile Include="Model\Scheduling\ScheduledMessage.cs" />
     <Compile Include="Model\Messaging\Exchange.cs" />
     <Compile Include="Model\Messaging\Message.cs" />

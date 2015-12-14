@@ -9,7 +9,8 @@ namespace RabbitMQLibrary.Model.Scheduling
         public Guid ScheduledMessageGuid { get; set; }
         public bool Active { get; set; }
         public Message Message { get; set; }
-        public MessageSchedule MessageSchedule { get; set; }
+        public string CronExpression { get; set; }
+        public DateTimeOffset EffectiveDate { get; set; }
         public IList<MessageRun> MessageRuns { get; set; }
     }
 }
